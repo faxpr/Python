@@ -1,0 +1,25 @@
+import random
+number = random.randint (1,10)
+populationHIGH=['Hodně vysoko míříš', 'Tolik nesnim. Míň dávej...', 'Brzdi, brzdi... tolik ne']
+populationLow=['Vejš miř...','Přidej ještě...','Štědřejc, pls...']
+# aby to vybiralo nahodne #
+
+player_name = input("Vítej, jak se jmenuješ?")
+number_of_guesses = 0
+print('Pecka! Já jsem Python a ty jsi ' + player_name + '!' +' Těší mě!\n Žeru čísla, víš... \n Tak mě nějakýma nakrm. Napiš mi na jaký číslo od 1 do 10 myslim: ')
+while number_of_guesses < 5:
+	guess = int(input())
+	number_of_guesses += 1
+# dokud nenahada vic jak/= 5 tak to pojede dal #  
+	if guess < number:
+		print (populationLow[random.randint(0, 2)])
+	if guess > number:
+		print (populationHIGH[random.randint(0, 2)])
+	if guess == number:
+		break
+if guess == number:
+    print('Tohle je přesně to číslo, co jsem měl na mysli a stačilo na to jen ' + str(number_of_guesses) + ' pokusů! \n \nDíky za nakrmení '+ player_name + '.')
+# kdyz se to povede trefit #
+else:
+    print('To není číslo, co jsem chtěl vidět. Čekal jsem ' + str(number))
+# kdyz se to nepovede trefit a pocet pokusu je < 5 #
